@@ -55,6 +55,15 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "test": [
+            "@quality:architecture:deptrac"
+        ],
+        "quality:architecture:deptrac": [
+            "php bin/deptrac.phar analyse --config-file=deptrac.yml"
+        ],
+        "q:a:d": [
+            "@quality:architecture:deptrac"
         ]
     },
     "conflict": {

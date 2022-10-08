@@ -1,0 +1,36 @@
+deptrac:
+    paths:
+        - src
+    layers:
+        -   name: Domain
+            collectors:
+                -   type: bool
+                    must:
+                        -   type: directory
+                            regex: src/Enraged/Ebenezer/Domain/.*
+        -   name: Application
+            collectors:
+                -   type: bool
+                    must:
+                        -   type: directory
+                            regex: src/Enraged/Ebenezer/Application/.*
+        -   name: UserInterface
+            collectors:
+                -   type: bool
+                    must:
+                        -   type: directory
+                            regex: src/Enraged/Ebenezer/UserInterface/.*
+        -   name: Infrastructure
+            collectors:
+                -   type: bool
+                    must:
+                        -   type: directory
+                            regex: src/Enraged/Ebenezer/Infrastructure/.*
+    ruleset:
+        Domain:
+        Infrastructure:
+        Application:
+            - Domain
+            - Infrastructure
+        UserInterface:
+            - Application
