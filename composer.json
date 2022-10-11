@@ -57,13 +57,29 @@
             "@auto-scripts"
         ],
         "test": [
-            "@quality:architecture:deptrac",
-            "@quality:code:psalm"
+            "@quality:architecture:deptrac:check",
+            "@quality:codestandard:php-cs-fixer:check",
+            "@quality:code:psalm:check"
         ],
-        "quality:architecture:deptrac": [
+        "fix": [
+            "@quality:codestandard:php-cs-fixer:fix"
+        ],
+        "fix:risky": [
+            "@quality:codestandard:php-cs-fixer:fix:risky"
+        ],
+        "quality:codestandard:php-cs-fixer:check": [
+            "PHP_CS_FIXER_RISKY=1 php bin/php-cs-fixer.phar fix --dry-run"
+        ],
+        "quality:codestandard:php-cs-fixer:fix": [
+            "PHP_CS_FIXER_RISKY=0 php bin/php-cs-fixer.phar fix"
+        ],
+        "quality:codestandard:php-cs-fixer:fix:risky": [
+            "PHP_CS_FIXER_RISKY=1 php bin/php-cs-fixer.phar fix"
+        ],
+        "quality:architecture:deptrac:check": [
             "php bin/deptrac.phar analyse --config-file=deptrac.yml"
         ],
-        "quality:code:psalm": [
+        "quality:code:psalm:check": [
             "php bin/psalm.phar"
         ]
     },
