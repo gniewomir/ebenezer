@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Enraged\Ebenezer\Application;
 
 use Enraged\Ebenezer\CalendarInterface;
-use Enraged\Ebenezer\Domain\Asset;
-use Enraged\Ebenezer\Domain\AssetInterface;
+use Enraged\Ebenezer\Domain\Asset\Asset;
+use Enraged\Ebenezer\Domain\Asset\AssetInterface;
+use Enraged\Ebenezer\Domain\Asset\AssetTypeEnum;
 use Symfony\Component\Uid\UuidV4;
 
 final class AssetFacade
@@ -17,11 +18,12 @@ final class AssetFacade
     ) {
     }
 
-    public function createAsset(UuidV4 $id): void
+    public function createAsset(UuidV4 $id, AssetTypeEnum $type): void
     {
         $this->asset->persist(
             new Asset(
                 $id,
+                $type,
                 $this->calendar->now()
             )
         );

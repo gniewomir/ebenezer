@@ -8,6 +8,9 @@ deptrac:
                     must:
                         -   type: directory
                             regex: src/Enraged/Ebenezer/Domain/.*
+                    must_not:
+                        -   type: classLike
+                            value: .*Enum
         -   name: Application
             collectors:
                 -   type: bool

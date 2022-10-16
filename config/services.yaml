@@ -10,6 +10,10 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        
+    _instanceof:
+        Enraged\Ebenezer\Infrastructure\Doctrine\Type\AbstractEnumType:
+            tags: ['ebenezer.doctrine_enum_type']
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -17,6 +21,7 @@ services:
         resource: '../src/Enraged/Ebenezer/'
         exclude:
             - '../src/Enraged/Ebenezer/Infrastructure/Symfony/Kernel.php'
+            - '../src/Enraged/Ebenezer/Infrastructure/Symfony/CompilerPass/'
             - '../src/Enraged/Ebenezer/UserInterface/Exception/'
             - '../src/Enraged/Ebenezer/Application/Exception/'
             - '../src/Enraged/Ebenezer/Domain/Exception/'
@@ -27,4 +32,16 @@ services:
     
     Enraged\Ebenezer\CalendarInterface: '@Enraged\Ebenezer\Infrastructure\Calendar\Calendar'
     
-    Enraged\Ebenezer\Domain\AssetInterface: '@Enraged\Ebenezer\Infrastructure\ORM\AssetRepository'
+    Enraged\Ebenezer\Domain\Asset\AssetInterface: '@Enraged\Ebenezer\Infrastructure\ORM\AssetRepository'
+
+when@dev:
+    services:
+        
+        Enraged\Ebenezer\Infrastructure\Doctrine\Listener\FixPostgreSQLDefaultSchemaListener:
+            tags:
+                - { name: doctrine.event_listener, event: postGenerateSchema }
+
+when@test:
+    services:
+
+        Enraged\Ebenezer\CalendarInterface: '@Enraged\Ebenezer\Infrastructure\Test\Calendar\CalendarStub'

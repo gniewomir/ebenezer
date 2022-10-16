@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enraged\Ebenezer\Domain;
+namespace Enraged\Ebenezer\Domain\Asset;
 
 use DateTimeInterface;
 use Symfony\Component\Uid\UuidV4;
@@ -14,17 +14,23 @@ class Asset
 
     public function __construct(
         private readonly UuidV4 $id,
+        private readonly AssetTypeEnum $type,
         private readonly DateTimeInterface $created_at,
     ) {
     }
 
-    public function getId(): UuidV4
+    public function id(): UuidV4
     {
         return $this->id;
     }
 
-    public function getCreatedAt(): DateTimeInterface
+    public function createdAt(): DateTimeInterface
     {
         return $this->created_at;
+    }
+
+    public function type(): AssetTypeEnum
+    {
+        return $this->type;
     }
 }

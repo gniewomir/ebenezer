@@ -10,7 +10,7 @@ use DateTimeInterface;
 use Enraged\Ebenezer\Infrastructure\Calendar\CalendarInterface;
 use Enraged\Ebenezer\Infrastructure\Exception\LogicInfrastructureException;
 
-final class CalendarStub implements CalendarInterface, TimeOffsetInterface, FixedTimeInterface
+final class CalendarStub implements CalendarInterface, \Enraged\Ebenezer\CalendarInterface, TimeOffsetInterface, FixedTimeInterface
 {
     private ?DateTimeInterface $fixed = null;
     private ?DateInterval $addOffset = null;

@@ -7,7 +7,7 @@ namespace Enraged\Ebenezer\Infrastructure\Calendar;
 use DateTimeImmutable;
 use DateTimeInterface;
 
-class Calendar implements CalendarInterface
+class Calendar implements CalendarInterface, \Enraged\Ebenezer\CalendarInterface
 {
     public function now(): DateTimeInterface
     {

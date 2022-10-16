@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Enraged\Ebenezer\Infrastructure\Test\ORM;
 
-use Enraged\Ebenezer\Domain\Asset;
-use Enraged\Ebenezer\Domain\AssetInterface;
+use Enraged\Ebenezer\Domain\Asset\Asset;
+use Enraged\Ebenezer\Domain\Asset\AssetInterface;
 use Enraged\Ebenezer\Infrastructure\Exception\NotFoundInfrastructureException;
 use Symfony\Component\Uid\UuidV4;
 
@@ -18,7 +18,7 @@ final class AssetRepositoryInMemory implements AssetInterface
 
     public function persist(Asset $asset): void
     {
-        $this->assets[(string) $asset->getId()] = $asset;
+        $this->assets[(string) $asset->id()] = $asset;
     }
 
     public function getById(UuidV4 $id): Asset

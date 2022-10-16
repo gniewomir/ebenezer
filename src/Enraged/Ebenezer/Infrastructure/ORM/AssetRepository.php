@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Enraged\Ebenezer\Infrastructure\ORM;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Enraged\Ebenezer\Domain\Asset;
-use Enraged\Ebenezer\Domain\AssetInterface;
+use Enraged\Ebenezer\Domain\Asset\Asset;
+use Enraged\Ebenezer\Domain\Asset\AssetInterface;
 use Enraged\Ebenezer\Infrastructure\Exception\NotFoundInfrastructureException;
 use Symfony\Component\Uid\Uuid;
 

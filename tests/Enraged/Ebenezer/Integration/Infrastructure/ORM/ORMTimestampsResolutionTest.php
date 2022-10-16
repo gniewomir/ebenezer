@@ -6,8 +6,9 @@ namespace Tests\Enraged\Ebenezer\Integration\Infrastructure\ORM;
 
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-use Enraged\Ebenezer\Domain\Asset;
-use Enraged\Ebenezer\Domain\AssetInterface;
+use Enraged\Ebenezer\Domain\Asset\Asset;
+use Enraged\Ebenezer\Domain\Asset\AssetInterface;
+use Enraged\Ebenezer\Domain\Asset\AssetTypeEnum;
 use Symfony\Component\Uid\UuidV4;
 use Tests\Enraged\Ebenezer\Integration\IntegrationTestCase;
 
@@ -26,6 +27,7 @@ final class ORMTimestampsResolutionTest extends IntegrationTestCase
         $repository->persist(
             new Asset(
                 $id = UuidV4::v4(),
+                AssetTypeEnum::CASH,
                 $createdAt = new DateTimeImmutable()
             )
         );
@@ -37,6 +39,6 @@ final class ORMTimestampsResolutionTest extends IntegrationTestCase
         $entityManager->detach($repository->getById($id));
 
         self::assertInstanceOf(Asset::class, $entity = $repository->getById($id));
-        self::assertSame($createdAt->format('u'), $entity->getCreatedAt()->format('u'));
+        self::assertSame($createdAt->format('u'), $entity->createdAt()->format('u'));
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enraged\Ebenezer\Domain;
+namespace Enraged\Ebenezer\Domain\Asset;
 
 use Symfony\Component\Uid\UuidV4;
 
