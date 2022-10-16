@@ -25,3 +25,12 @@ services:
 
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
+
+###> doctrine/doctrine-bundle ###
+  database:
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+      - ./docker/database:/docker-entrypoint-initdb.d    
+    ports:
+      - "5432:5432"
+###< doctrine/doctrine-bundle ###

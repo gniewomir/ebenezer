@@ -29,6 +29,7 @@ deptrac:
     ruleset:
         Domain:
         Infrastructure:
+            - Domain
         Application:
             - Domain
             - Infrastructure

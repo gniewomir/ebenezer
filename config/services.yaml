@@ -16,9 +16,13 @@ services:
     Enraged\Ebenezer\:
         resource: '../src/Enraged/Ebenezer/'
         exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
             - '../src/Enraged/Ebenezer/Infrastructure/Symfony/Kernel.php'
+            - '../src/Enraged/Ebenezer/UserInterface/Exception/'
+            - '../src/Enraged/Ebenezer/Application/Exception/'
+            - '../src/Enraged/Ebenezer/Domain/Exception/'
+            - '../src/Enraged/Ebenezer/Infrastructure/Exception/'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    
+    Enraged\Ebenezer\Domain\AssetInterface: '@Enraged\Ebenezer\Infrastructure\ORM\AssetRepository'

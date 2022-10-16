@@ -35,8 +35,6 @@ return $config
         'date_time_immutable' => getenv('PHP_CS_FIXER_RISKY') === '1',
         // There must not be spaces around `declare` statement parentheses.
         'declare_parentheses' => true,
-        // All classes must be final, except abstract ones and Doctrine entities.
-        'final_class' => getenv('PHP_CS_FIXER_RISKY') === '1',
         // All `public` methods of `abstract` classes should be `final`.
         'final_public_method_for_abstract_class' => getenv('PHP_CS_FIXER_RISKY') === '1',
         // Imports or fully qualifies global classes/functions/constants.
@@ -57,6 +55,10 @@ return $config
         'simplified_null_return' => true,
         // Each statement must be indented.
         'statement_indentation' => true,
+        // Forbid multi-line whitespace before the closing semicolon or move the semicolon to the new line for chained calls.
+        'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
+        // Enforce camel (or snake) case for PHPUnit test methods, following configuration.
+        'php_unit_method_casing' => ['case' => 'snake_case'],
     ])
     ->setFinder(PhpCsFixer\Finder::create()
         ->exclude('vendor')
