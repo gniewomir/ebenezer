@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enraged\Ebenezer\Application;
 
-use DateTimeImmutable;
+use Enraged\Ebenezer\CalendarInterface;
 use Enraged\Ebenezer\Domain\Asset;
 use Enraged\Ebenezer\Domain\AssetInterface;
 use Symfony\Component\Uid\UuidV4;
@@ -12,6 +12,7 @@ use Symfony\Component\Uid\UuidV4;
 final class AssetFacade
 {
     public function __construct(
+        private readonly CalendarInterface $calendar,
         private readonly AssetInterface $asset
     ) {
     }
@@ -21,7 +22,7 @@ final class AssetFacade
         $this->asset->persist(
             new Asset(
                 $id,
-                new DateTimeImmutable()
+                $this->calendar->now()
             )
         );
     }

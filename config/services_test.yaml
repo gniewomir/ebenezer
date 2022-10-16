@@ -1,0 +1,3 @@
+services:
+  
+    Enraged\Ebenezer\CalendarInterface: '@Enraged\Ebenezer\Infrastructure\Test\Calendar\CalendarStub'

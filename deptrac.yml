@@ -27,11 +27,11 @@ deptrac:
                         -   type: directory
                             regex: src/Enraged/Ebenezer/Infrastructure/.*
     ruleset:
-        Domain:
-        Infrastructure:
-            - Domain
+        UserInterface:
+            - Application
         Application:
             - Domain
             - Infrastructure
-        UserInterface:
-            - Application
+        Infrastructure:
+            - Domain
+        Domain:

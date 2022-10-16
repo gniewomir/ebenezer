@@ -25,4 +25,6 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     
+    Enraged\Ebenezer\CalendarInterface: '@Enraged\Ebenezer\Infrastructure\Calendar\Calendar'
+    
     Enraged\Ebenezer\Domain\AssetInterface: '@Enraged\Ebenezer\Infrastructure\ORM\AssetRepository'

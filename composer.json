@@ -38,7 +38,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Enraged\\Ebenezer\\": "tests/Enraged/Ebenezer"
+            "Tests\\Enraged\\Ebenezer\\": "tests/Enraged/Ebenezer/"
         }
     },
     "replace": {
