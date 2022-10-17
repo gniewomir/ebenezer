@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Enraged\Ebenezer\Integration\Infrastructure\ORM;
 
 use DateTimeImmutable;
+use Decimal\Decimal;
 use Doctrine\ORM\EntityManagerInterface;
 use Enraged\Ebenezer\Domain\Asset\Asset;
 use Enraged\Ebenezer\Domain\Asset\AssetInterface;
@@ -28,6 +29,7 @@ final class ORMTimestampsResolutionTest extends IntegrationTestCase
             new Asset(
                 $id = UuidV4::v4(),
                 AssetTypeEnum::CASH,
+                new Decimal('10'),
                 $createdAt = new DateTimeImmutable()
             )
         );

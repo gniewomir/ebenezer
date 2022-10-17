@@ -27,14 +27,15 @@ abstract class AbstractEnumType extends Type
 
     final public function convertToPHPValue(mixed $value, AbstractPlatform $platform): mixed
     {
-        /** @var BackedEnum $class */
-        $class = $this::getEnumsClass();
         if (false === enum_exists($this->getEnumsClass())) {
             throw new ConversionException('Provided class should be an backed enum');
         }
         if (!\is_string($value)) {
             throw new ConversionException('Value is not a string!');
         }
+
+        /** @var BackedEnum $class */
+        $class = $this::getEnumsClass();
         $enum = $class::tryFrom($value);
         if (null === $enum) {
             throw new ConversionException('Unrecognized value!');

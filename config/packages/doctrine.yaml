@@ -8,6 +8,7 @@ doctrine:
             datetime_immutable: Doctrine\DBAL\Types\VarDateTimeImmutableType
             datetimetz_immutable: Doctrine\DBAL\Types\VarDateTimeImmutableType
             time_immutable: Doctrine\DBAL\Types\VarDateTimeImmutableType
+            php_decimal: Enraged\Ebenezer\Infrastructure\Doctrine\Type\PhpDecimalType
         platform_service: Enraged\Ebenezer\Infrastructure\Doctrine\PostgreSQLPlatform
             
         # IMPORTANT: You MUST configure your server version,

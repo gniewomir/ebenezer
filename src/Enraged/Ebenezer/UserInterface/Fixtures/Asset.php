@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Enraged\Ebenezer\UserInterface\Fixtures;
 
+use Decimal\Decimal;
 use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Enraged\Ebenezer\Application\AssetFacade;
@@ -19,6 +20,10 @@ class Asset implements ORMFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $this->asset_facade->createAsset(new UuidV4(), AssetTypeEnum::CASH);
+        $this->asset_facade->createAsset(
+            new UuidV4(),
+            AssetTypeEnum::CASH,
+            new Decimal('10')
+        );
     }
 }

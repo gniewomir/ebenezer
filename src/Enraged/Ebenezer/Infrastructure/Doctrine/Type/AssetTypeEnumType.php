@@ -6,7 +6,7 @@ namespace Enraged\Ebenezer\Infrastructure\Doctrine\Type;
 
 use Enraged\Ebenezer\Domain\Asset\AssetTypeEnum;
 
-final class AssetTypeType extends AbstractEnumType
+final class AssetTypeEnumType extends AbstractEnumType
 {
     public const NAME = 'asset_type';
 

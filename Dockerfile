@@ -38,20 +38,24 @@ RUN set -eux; \
 		icu-dev \
 		libzip-dev \
 		zlib-dev \
+    	-X http://dl-cdn.alpinelinux.org/alpine/edge/main mpdecimal-dev \
 	; \
 	\
 	docker-php-ext-configure zip; \
 	docker-php-ext-install -j$(nproc) \
 		intl \
 		zip \
+    	bcmath \
 	; \
 	pecl install \
 		apcu \
+    	decimal \
 	; \
 	pecl clear-cache; \
 	docker-php-ext-enable \
 		apcu \
 		opcache \
+    	decimal \
 	; \
 	\
 	runDeps="$( \

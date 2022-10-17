@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Enraged\Ebenezer\Unit\Domain;
 
 use DateTimeImmutable;
+use Decimal\Decimal;
 use Enraged\Ebenezer\Domain\Asset\Asset;
 use Enraged\Ebenezer\Domain\Asset\AssetTypeEnum;
 use PHPUnit\Framework\TestCase;
@@ -22,6 +23,7 @@ final class AssetTest extends TestCase
         $asset = new Asset(
             $id = UuidV4::v4(),
             $type = AssetTypeEnum::CASH,
+            new Decimal('10'),
             $createdAt = new DateTimeImmutable()
         );
 
