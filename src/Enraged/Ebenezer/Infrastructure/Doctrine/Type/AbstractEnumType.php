@@ -9,6 +9,8 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 
+use function is_string;
+
 abstract class AbstractEnumType extends Type
 {
     final public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
@@ -30,7 +32,7 @@ abstract class AbstractEnumType extends Type
         if (false === enum_exists($this->getEnumsClass())) {
             throw new ConversionException('Provided class should be an backed enum');
         }
-        if (!\is_string($value)) {
+        if (!is_string($value)) {
             throw new ConversionException('Value is not a string!');
         }
 

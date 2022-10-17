@@ -37,8 +37,6 @@ return $config
         'declare_parentheses' => true,
         // All `public` methods of `abstract` classes should be `final`.
         'final_public_method_for_abstract_class' => getenv('PHP_CS_FIXER_RISKY') === '1',
-        // Imports or fully qualifies global classes/functions/constants.
-        'global_namespace_import' => true,
         // Replace non multibyte-safe functions with corresponding mb function.
         'mb_str_functions' => getenv('PHP_CS_FIXER_RISKY') === '1',
         // There must not be more than one statement per line.
@@ -59,6 +57,21 @@ return $config
         'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
         // Enforce camel (or snake) case for PHPUnit test methods, following configuration.
         'php_unit_method_casing' => ['case' => 'snake_case'],
+        // Imports or fully qualifies global classes/functions/constants.
+        'global_namespace_import' => [
+            'import_classes' => true,
+            'import_constants' => false,
+            'import_functions' => true,
+        ],
+        // Ordering use statements.
+        'ordered_imports' => [
+            'imports_order' => [
+                'const',
+                'class',
+                'function',
+            ],
+            'sort_algorithm' => 'alpha'
+        ]
     ])
     ->setFinder(PhpCsFixer\Finder::create()
         ->exclude('vendor')

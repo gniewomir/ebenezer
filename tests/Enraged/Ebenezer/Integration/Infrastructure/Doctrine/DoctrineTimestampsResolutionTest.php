@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Enraged\Ebenezer\Integration\Infrastructure\ORM;
+namespace Tests\Enraged\Ebenezer\Integration\Infrastructure\Doctrine;
 
 use DateTimeImmutable;
 use Decimal\Decimal;
@@ -14,17 +14,19 @@ use Money\Currency;
 use Symfony\Component\Uid\UuidV4;
 use Tests\Enraged\Ebenezer\Integration\IntegrationTestCase;
 
+use function assert;
+
 /**
  * @internal
  *
  * @coversNothing
  */
-final class ORMTimestampsResolutionTest extends IntegrationTestCase
+final class DoctrineTimestampsResolutionTest extends IntegrationTestCase
 {
     public function test_timestamps_are_stored_with_microseconds(): void
     {
         $repository = self::getContainer()->get(AssetInterface::class);
-        \assert($repository instanceof AssetInterface);
+        assert($repository instanceof AssetInterface);
 
         $repository->persist(
             new Asset(
@@ -37,7 +39,7 @@ final class ORMTimestampsResolutionTest extends IntegrationTestCase
         );
 
         $entityManager = self::getContainer()->get(EntityManagerInterface::class);
-        \assert($entityManager instanceof EntityManagerInterface);
+        assert($entityManager instanceof EntityManagerInterface);
 
         // ensure we are checking entity fetched & mapped from database, not in memory object managed by doctrine
         $entityManager->detach($repository->getById($id));

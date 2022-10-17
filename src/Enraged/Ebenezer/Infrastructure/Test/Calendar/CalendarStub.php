@@ -10,6 +10,8 @@ use DateTimeInterface;
 use Enraged\Ebenezer\Infrastructure\Calendar\CalendarInterface;
 use Enraged\Ebenezer\Infrastructure\Exception\LogicInfrastructureException;
 
+use function assert;
+
 final class CalendarStub implements CalendarInterface, \Enraged\Ebenezer\CalendarInterface, TimeOffsetInterface, FixedTimeInterface
 {
     private ?DateTimeInterface $fixed = null;
@@ -24,14 +26,14 @@ final class CalendarStub implements CalendarInterface, \Enraged\Ebenezer\Calenda
 
         if ($this->addOffset) {
             $result = (new DateTimeImmutable())->add($this->addOffset);
-            \assert($result instanceof DateTimeInterface);
+            assert($result instanceof DateTimeInterface);
 
             return $result;
         }
 
         if ($this->subOffset) {
             $result = (new DateTimeImmutable())->sub($this->subOffset);
-            \assert($result instanceof DateTimeInterface);
+            assert($result instanceof DateTimeInterface);
 
             return $result;
         }

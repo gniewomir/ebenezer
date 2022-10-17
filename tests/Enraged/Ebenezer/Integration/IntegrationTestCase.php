@@ -8,12 +8,14 @@ use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
+use function assert;
+
 abstract class IntegrationTestCase extends KernelTestCase
 {
     protected function setUp(): void
     {
         $entityManager = self::getContainer()->get(EntityManagerInterface::class);
-        \assert($entityManager instanceof EntityManagerInterface);
+        assert($entityManager instanceof EntityManagerInterface);
 
         $purger = new ORMPurger($entityManager);
         $purger->setPurgeMode(ORMPurger::PURGE_MODE_TRUNCATE);
