@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Enraged\Ebenezer\Domain\Asset\Asset;
 use Enraged\Ebenezer\Domain\Asset\AssetInterface;
 use Enraged\Ebenezer\Domain\Asset\AssetTypeEnum;
+use Money\Currency;
 use Symfony\Component\Uid\UuidV4;
 use Tests\Enraged\Ebenezer\Integration\IntegrationTestCase;
 
@@ -30,6 +31,7 @@ final class ORMTimestampsResolutionTest extends IntegrationTestCase
                 $id = UuidV4::v4(),
                 AssetTypeEnum::CASH,
                 new Decimal('10'),
+                new Currency('USD'),
                 $createdAt = new DateTimeImmutable()
             )
         );

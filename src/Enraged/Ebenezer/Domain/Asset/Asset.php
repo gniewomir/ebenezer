@@ -6,6 +6,7 @@ namespace Enraged\Ebenezer\Domain\Asset;
 
 use DateTimeInterface;
 use Decimal\Decimal;
+use Money\Currency;
 use Symfony\Component\Uid\UuidV4;
 
 class Asset
@@ -17,6 +18,7 @@ class Asset
         private readonly UuidV4 $id,
         private readonly AssetTypeEnum $type,
         private readonly Decimal $units,
+        private readonly Currency $currency,
         private readonly DateTimeInterface $created_at,
     ) {
     }
@@ -39,5 +41,10 @@ class Asset
     public function units(): Decimal
     {
         return $this->units;
+    }
+
+    public function currency(): Currency
+    {
+        return $this->currency;
     }
 }

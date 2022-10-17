@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use Decimal\Decimal;
 use Enraged\Ebenezer\Domain\Asset\Asset;
 use Enraged\Ebenezer\Domain\Asset\AssetTypeEnum;
+use Money\Currency;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Uid\UuidV4;
 
@@ -24,6 +25,7 @@ final class AssetTest extends TestCase
             $id = UuidV4::v4(),
             $type = AssetTypeEnum::CASH,
             new Decimal('10'),
+            new Currency('USD'),
             $createdAt = new DateTimeImmutable()
         );
 

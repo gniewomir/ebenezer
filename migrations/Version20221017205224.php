@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20221017195101 extends AbstractMigration
+final class Version20221017205224 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -19,7 +19,7 @@ final class Version20221017195101 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        $this->addSql('CREATE TABLE eb_asset (id UUID NOT NULL, type TEXT NOT NULL, units DECIMAL(20,5) NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT NULL, liquidated_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE eb_asset (id UUID NOT NULL, type TEXT NOT NULL, units DECIMAL(20,5) NOT NULL, created_at TIMESTAMP(6) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT NULL, liquidated_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT NULL, currency_code VARCHAR(3) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN eb_asset.id IS \'(DC2Type:uuid)\'');
         $this->addSql('COMMENT ON COLUMN eb_asset.created_at IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('COMMENT ON COLUMN eb_asset.updated_at IS \'(DC2Type:datetime_immutable)\'');

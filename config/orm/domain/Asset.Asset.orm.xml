@@ -5,6 +5,7 @@
         </id>
         <field name="type" type="asset_type"/>
         <field name="units" type="php_decimal"/>
+        <embedded name="currency" class="Money\Currency"/>
         <field name="created_at" type="datetime_immutable"/>
         <field name="updated_at" type="datetime_immutable" nullable="true"/>
         <field name="liquidated_at" type="datetime_immutable" nullable="true"/>

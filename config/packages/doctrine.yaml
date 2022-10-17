@@ -34,6 +34,11 @@ doctrine:
                 type: xml
                 dir: '%kernel.project_dir%/config/orm/infrastructure'
                 prefix: 'Enraged\Ebenezer\Infrastructure'
+            Money:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/orm/money'
+                prefix: 'Money'
 
 when@test:
     doctrine:
