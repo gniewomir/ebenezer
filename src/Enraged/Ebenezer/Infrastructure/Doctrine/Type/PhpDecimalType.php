@@ -20,7 +20,12 @@ class PhpDecimalType extends Type
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return sprintf('DECIMAL(%d,%d)', self::PRECISION, self::SCALE);
+        return $platform->getDecimalTypeDeclarationSQL(
+            [
+                'precision' => self::PRECISION,
+                'scale' => self::SCALE,
+            ]
+        );
     }
 
     /**
