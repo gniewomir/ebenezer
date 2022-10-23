@@ -1,8 +1,19 @@
 # TODO FEATURE
+* Upload ING CSV - update list of assets and their valuation from CSV 
+* Upload mBAnk IKE CSV - update list of assets and their valuation from CSV
+* Upload eToro  Account Statement - update list of assets and their valuation from CSV
+* Automatically update currency assets valuations  
+* Automatically update stock valuations
+* Automatically update item valuations
+* Report - net worth
+* Report - historic net worth
+* Report - historic net worth adjusted for inflation
+* Report - P&L per asset class
 
 # DONE FEATURE
 
 # TODO DEVELOPMENT
+* Assertions 
 * Add support for domain events
 * Add faker and test contexts
 * Run tests in CI workflow 
